@@ -27,11 +27,30 @@ pub fn login() -> Html {
     };
 
     html! {
-        <div class="bg-gray-800 flex w-screen">
-            <div class="container mx-auto flex flex-col justify-center items-center	">
-                <form class="m-4 flex">
-                    <input {oninput} class="rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white" placeholder="Username"/>
-                    <Link<Route> to={Route::Chat}> <button {onclick} disabled={username.len()<1} class="px-8 rounded-r-lg bg-violet-600	  text-white font-bold p-4 uppercase border-violet-600 border-t border-b border-r" >{"Go Chatting!"}</button></Link<Route>>
+        <div class="bg-gradient-to-r from-violet-200 to-pink-200 flex w-screen h-screen items-center justify-center">
+            <div class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl max-w-md w-full">
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-bold text-violet-800 mb-2">{"Welcome to YewChat! 👋"}</h1>
+                    <p class="text-violet-600">{"Connect with friends in real-time"}</p>
+                </div>
+                <form class="space-y-4">
+                    <div class="relative">
+                        <input 
+                            {oninput} 
+                            class="w-full px-4 py-3 rounded-xl border-2 border-violet-200 focus:border-violet-400 focus:outline-none transition-all pl-10" 
+                            placeholder="Enter your username"
+                        />
+                        <span class="absolute left-3 top-3.5 text-violet-400">{"👤"}</span>
+                    </div>
+                    <Link<Route> to={Route::Chat}>
+                        <button 
+                            {onclick} 
+                            disabled={username.len()<1} 
+                            class="w-full px-4 py-3 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-medium shadow-lg hover:shadow-violet-400/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                            {"Start Chatting! 🚀"}
+                        </button>
+                    </Link<Route>>
                 </form>
             </div>
         </div>
